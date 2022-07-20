@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <div className="App-header">
 
-          hello world
+          <h1>Rick and Morty App</h1>
           <CharacterGallery />
       </div>
     </div>

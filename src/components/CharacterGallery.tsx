@@ -1130,9 +1130,14 @@ const apiData = [
 
 export default function CharacterGallery(){
     return(
-        <div>
-            <CharacterCard />
-            {apiData.map(item => <div>{item.name}</div>)}
+        <div className={"characterGallery"}>
+            {apiData.map(item => <CharacterCard
+                cName={item.name}
+                cGender={item.gender}
+                cImage={item.image}
+                cLocation={item.location.name}
+                cSpecies={item.species}
+                cStatus={item.status}/>)}
         </div>
     )
 }
