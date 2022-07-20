@@ -39,7 +39,7 @@
 
 .characterCard{
   border: #00ba72 5px solid;
-  background: rgba(2, 2, 2, 0.35);
+  background: rgba(94, 94, 94, 0.26);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -104,6 +104,8 @@ body {
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: linear;
+
+  font-family: "Annai MN";
 }
 
 @keyframes backgroundColorPalette {
