@@ -1,8 +1,9 @@
-export type character = {
-    cName: string,
-    cStatus: string,
-    cSpecies: string,
-    cGender: string,
-    cLocation: string,
-    cImage: string
+export type Character = {
+    id: number,
+    name: string,
+    status: string,
+    species: string,
+    gender: string,
+    location: { name: string },
+    image: string
 }

@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import CharacterCard from "./CharacterCard";
 import "./CharacterGallery.css"
+import SearchBar from "./SearchBar";
+import {Character} from "./Character"
 
-const apiData = [
+export const apiData = [
     {
         "id": 1,
         "name": "Rick Sanchez",
@@ -1129,16 +1131,30 @@ const apiData = [
     }
 ]
 
+type CharacterGalleryProps = {
+    characters: Character[]
+}
+
+
 export default function CharacterGallery(){
+
+    const [searchText, setSearchText] = useState<string>("")
+    const filteredCharacters = apiData.filter(character => character.name.toLowerCase().includes(searchText.toLowerCase()))
+
     return(
         <div className={"characterGallery"}>
-            {apiData.map(item => <CharacterCard
-                cName={item.name}
-                cGender={item.gender}
-                cImage={item.image}
-                cLocation={item.location.name}
-                cSpecies={item.species}
-                cStatus={item.status}/>)}
+            <SearchBar setSearchText={setSearchText}/>
+            {filteredCharacters.length === 0 && <p>Sorry, there are no characters to display!!</p> }
+            {filteredCharacters.map((character) => <CharacterCard character={character} key={character.id}/>)}
+
+
+            {/*{apiData.map(item => <CharacterCard*/}
+            {/*    cName={item.name}*/}
+            {/*    cGender={item.gender}*/}
+            {/*    cImage={item.image}*/}
+            {/*    cLocation={item.location.name}*/}
+            {/*    cSpecies={item.species}*/}
+            {/*    cStatus={item.status}/>)}*/}
         </div>
     )
 }
