@@ -10,7 +10,7 @@ type CharacterGalleryProps = {
 }
 
 
-export default function CharacterGallery(){
+export default function CharacterGallery() {
 
     const [characters, setCharacter] = useState<Character[]>([])
 
@@ -20,37 +20,47 @@ export default function CharacterGallery(){
 
     const [pageLink, setPageLink] = useState<string>(url)
 
-    console.log("pageNumber: "+pageNumber)
-    console.log("pageLink: "+pageLink)
+    console.log("pageNumber: " + pageNumber)
+    console.log("pageLink: " + pageLink)
 
-    useEffect(()=>{
+    useEffect(() => {
         axios.get(pageLink)
-            .then((response) => {return response.data})
-            .then((data) => {setCharacter(data.results)})
-            .catch((error) => {console.error(error)})
+            .then((response) => {
+                return response.data
+            })
+            .then((data) => {
+                setCharacter(data.results)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
 
         console.log("useEffect done!!")
-    },[pageLink])
+    }, [pageLink])
 
-    console.log("pageLink: "+pageLink)
+    console.log("pageLink: " + pageLink)
 
 
     const [searchText, setSearchText] = useState<string>("")
     const filteredCharacters = characters.filter(character => character.name.toLowerCase().includes(searchText.toLowerCase()))
 
-    return(
+    return (
         <div>
             <p>
-            Search:
+                Search:
             </p>
             <SearchBar setSearchText={setSearchText}/>
-            <button>prev</button><button onClick={()=> {
-            setPageNumber(pageNumber + 1)
-            setPageLink(url+pageNumber)
-        }}>next</button>
+            <div>
+                <button>prev</button>
+                <button onClick={() => {
+                    setPageNumber(pageNumber<42 ? pageNumber + 1 : 1)
+                    setPageLink(url + pageNumber)
+                }}>next
+                </button>
+            </div>
             <div className={"characterGallery"}>
-            {filteredCharacters.length === 0 && <p>Sorry, there are no characters to display!!</p> }
-            {filteredCharacters.map((character) => <CharacterCard character={character} key={character.id}/>)}
+                {filteredCharacters.length === 0 && <p>Sorry, there are no characters to display!!</p>}
+                {filteredCharacters.map((character) => <CharacterCard character={character} key={character.id}/>)}
             </div>
         </div>
     )
