@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import CharacterCard from "./CharacterCard";
 import "./CharacterGallery.css"
 import SearchBar from "./SearchBar";
@@ -14,11 +14,14 @@ export default function CharacterGallery(){
 
     const [characters, setCharacter] = useState<Character[]>([])
 
+    useEffect(()=>{
+        axios.get("https://rickandmortyapi.com/api/character")
+            .then((response) => {return response.data})
+            .then((data) => {setCharacter(data.results)})
+            .catch((error) => {console.error(error)})
+    },[])
 
-    axios.get("https://rickandmortyapi.com/api/character")
-        .then((response) => {return response.data})
-        .then((data) => {setCharacter(data.results)})
-        .catch((error) => {console.error(error)})
+
 
     const [searchText, setSearchText] = useState<string>("")
     const filteredCharacters = characters.filter(character => character.name.toLowerCase().includes(searchText.toLowerCase()))
