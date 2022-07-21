@@ -14,13 +14,25 @@ export default function CharacterGallery(){
 
     const [characters, setCharacter] = useState<Character[]>([])
 
+    const [pageNumber, setPageNumber] = useState<number>(1)
+
+    const url = "https://rickandmortyapi.com/api/character?page="
+
+    const [pageLink, setPageLink] = useState<string>(url)
+
+    console.log("pageNumber: "+pageNumber)
+    console.log("pageLink: "+pageLink)
+
     useEffect(()=>{
-        axios.get("https://rickandmortyapi.com/api/character")
+        axios.get(pageLink)
             .then((response) => {return response.data})
             .then((data) => {setCharacter(data.results)})
             .catch((error) => {console.error(error)})
-    },[])
 
+        console.log("useEffect done!!")
+    },[pageLink])
+
+    console.log("pageLink: "+pageLink)
 
 
     const [searchText, setSearchText] = useState<string>("")
@@ -32,6 +44,10 @@ export default function CharacterGallery(){
             Search:
             </p>
             <SearchBar setSearchText={setSearchText}/>
+            <button>prev</button><button onClick={()=> {
+            setPageNumber(pageNumber + 1)
+            setPageLink(url+pageNumber)
+        }}>next</button>
             <div className={"characterGallery"}>
             {filteredCharacters.length === 0 && <p>Sorry, there are no characters to display!!</p> }
             {filteredCharacters.map((character) => <CharacterCard character={character} key={character.id}/>)}
