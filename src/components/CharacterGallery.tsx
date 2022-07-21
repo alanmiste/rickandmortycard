@@ -50,7 +50,7 @@ export default function CharacterGallery() {
                 Search:
             </p>
             <SearchBar setSearchText={setSearchText}/>
-            <div>
+            <div className={"nextAndPrevious"}>
                 <button onClick={()=> {
                     setPageNumber(pageNumber>1 ? pageNumber - 1 : 42)
                     setPageLink(url + pageNumber)
