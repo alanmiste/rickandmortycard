@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import CharacterGallery from "./components/CharacterGallery";
-import {apiData} from "./components/CharacterGallery";
+// import {apiData} from "./components/CharacterGallery";
 import SearchBar from "./components/SearchBar";
 
 function App() {
