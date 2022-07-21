@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./CharacterCard.css"
 type character = {
     cName: string,
     cStatus: string,
