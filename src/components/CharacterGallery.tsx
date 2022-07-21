@@ -1,5 +1,6 @@
 import React from "react";
 import CharacterCard from "./CharacterCard";
+import "./CharacterGallery.css"
 
 const apiData = [
     {
