@@ -65,3 +65,12 @@ body {
   }
 }
 /*---------------------------------------------------*/
+.searchInput{
+  /*width: 20%;*/
+  margin-bottom: 2em;
+  border-radius: 25px;
+  font-size: 2em;
+  color: #1aff00;
+  border: #00ba72 2px solid;
+  background-color: transparent;
+}

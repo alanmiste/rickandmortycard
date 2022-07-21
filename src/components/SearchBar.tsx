@@ -6,6 +6,6 @@ type SearchBarProps = {
 
 export default function SearchBar(props: SearchBarProps){
     return(
-        <input type="text" onChange={event => props.setSearchText(event.target.value)}/>
+        <input className={"searchInput"} type="text" onChange={event => props.setSearchText(event.target.value)}/>
     )
 }
