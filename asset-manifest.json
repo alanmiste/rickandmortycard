@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rickandmortycard/static/css/main.2a75b5ef.css",
+    "main.js": "/rickandmortycard/static/js/main.90cc3e13.js",
+    "static/js/787.12ae3536.chunk.js": "/rickandmortycard/static/js/787.12ae3536.chunk.js",
+    "index.html": "/rickandmortycard/index.html",
+    "main.2a75b5ef.css.map": "/rickandmortycard/static/css/main.2a75b5ef.css.map",
+    "main.90cc3e13.js.map": "/rickandmortycard/static/js/main.90cc3e13.js.map",
+    "787.12ae3536.chunk.js.map": "/rickandmortycard/static/js/787.12ae3536.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a75b5ef.css",
+    "static/js/main.90cc3e13.js"
+  ]
+}
